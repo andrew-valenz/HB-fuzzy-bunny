@@ -28,7 +28,7 @@ export async function createBunny(bunny) {
     const response = await client.from('fuzzy_bunnies').insert({
         name: bunny.name,
         user_id: getUser().id,
-        family_id: bunny.familyId,
+        family_id: bunny.family_id,
     });
     // return checkError(response);
     return checkError(response);
