@@ -6,18 +6,19 @@ const logoutButton = document.getElementById('logout');
 form.addEventListener('submit', async (e) => {
     // prevent default
     e.preventDefault();
+    const formData = new FormData(form);
     // get the name and family id from the form
-    const data = new FormData(form);
-    const name = data.get('bunny-name');
-    const familyId = data.get('family-id');
+    const name = formData.get('bunny-name');
+    const familyId = formData.get('family-id');
+    console.log(familyId);
     // use createBunny to create a bunny with this name and family id
+    form.reset();
     await createBunny({
         name: name,
         family_id: familyId,
     });
     window.location.replace('../families');
-
-    form.reset();
+    return false;
 });
 
 window.addEventListener('load', async () => {

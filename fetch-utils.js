@@ -23,12 +23,12 @@ export async function deleteBunny(id) {
     return checkError(response);
 }
 
-export async function createBunny() {
+export async function createBunny(bunny) {
     // create a bunny using the bunny argument
     const response = await client.from('fuzzy_bunnies').insert({
-        name: client.loving_families().id,
-        user_id: client.fuzzy_bunnies().id,
-        family_id: client.loving_families().id,
+        name: bunny.name,
+        user_id: getUser().id,
+        family_id: bunny.familyId,
     });
     // return checkError(response);
     return checkError(response);

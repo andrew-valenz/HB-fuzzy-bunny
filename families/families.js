@@ -19,6 +19,7 @@ function displayFamilies(families) {
         familyEl.classList.add('family');
         const nameEl = document.createElement('h3');
         nameEl.classList.bunniesEl;
+        nameEl.textContent = family.name;
         const bunniesEl = document.createElement('div');
         bunniesEl.classList.add('bunnies');
 
