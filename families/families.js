@@ -9,12 +9,12 @@ logoutButton.addEventListener('click', () => {
     logout();
 });
 
-function displayFamilies() {
+function displayFamilies(families) {
     // fetch families from supabase
     // clear out the familiesEl
     familiesEl.textContent = '';
     // loop through each family and for each family:
-    for (let family of familiesEl) {
+    for (let family of families) {
         const familyEl = document.createElement('div');
         familyEl.classList.add('family');
         const nameEl = document.createElement('h3');
@@ -26,7 +26,6 @@ function displayFamilies() {
             const bunnyEl = document.createElement('div');
             bunnyEl.classList.add('bunny');
             bunnyEl.textContent = bunny.name;
-
             bunnyEl.addEventListener('click', async () => {
                 await deleteBunny(bunny.id);
                 const updatedFamilies = await getFamilies();
